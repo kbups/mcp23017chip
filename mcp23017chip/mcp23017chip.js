@@ -132,9 +132,9 @@ module.exports = function(RED) {
 		this.on('input', function(msg) {
 			this.myChip.setOutput(this.bitNum, msg.payload)
 			if (msg.payload){
-				this.status({fill:"red",shape:"ring",text:"off"});
+				this.status({fill:"red",shape:"ring",text: this.invert ? "on" : "off"});
 			}else{
-				this.status({fill:"green",shape:"dot",text:"on"});
+				this.status({fill:"green",shape:"dot",text: this.invert ? "off" : "on"});
 			}
 		});
 		
